@@ -1,0 +1,32 @@
+
+.goods-list {
+  margin:10px 0;
+  .prompt {
+    font-size: 0.875em;
+    padding-bottom:0.5rem;
+  }
+  .ul {
+    background:#fff;
+    li {
+      padding: 0.5rem;
+    }
+    .img-box {
+      width: 4rem;
+      height: 4rem;
+      display:inline-block;
+      vertical-align: middle;
+    }
+    .content {
+      width:calc(100% - 4.5rem);
+      display:inline-block;
+      vertical-align: middle;
+      .btn {
+        background: #FF9402;
+        color:#fff;
+        border-radius: 4px;
+        padding: 0.1rem 0.625rem;
+        float: right;
+      }
+    }
+  }
+}

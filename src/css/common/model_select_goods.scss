@@ -1,0 +1,111 @@
+
+.select {
+  &.show {
+    display:block;
+  }
+  &.hide {
+    display:none;
+  }
+  .model-bg {
+    width: 100%;
+    height:100%;
+    background: rgba(0,0,0,0.7);
+    -webkit-backdrop-filter:blur(5px);
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 9999;
+  }
+  .select_goods {
+    position: fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    z-index: 10000;
+    background: #fff;
+    //min-height: 280px;
+    .goods-info {
+      min-height: 5.4rem;
+      padding: 0.625rem;
+      &>div {
+        display:inline-block;
+      }
+      .img-box {
+        width:6rem;
+        border:1px solid $border-color;
+        border-radius: 6px;
+        position: relative;
+        top: -1.625rem;
+        float: left;
+      }
+      .info {
+        padding-left: 0.875rem;
+        max-width: calc(100% - 6rem);
+        .name {
+          color:#333;
+          font-size: 1rem;
+        }
+        .small {
+          color:#FF9402;
+          font-size: 0.75rem;
+        }
+      }
+    }
+    .select {
+      padding: 1rem 0.625rem;
+      .list {
+        display:inline-block;
+        margin: 0.5rem;
+        position:relative;
+        input {
+          position: absolute;
+          clip: rect(0, 0, 0, 0);
+        }
+        label {
+          padding:0.25rem 0.625rem;
+          background: #F2F5F7;
+          border:1px solid $border-color;
+          border-radius: 4px;
+        }
+        input:checked + label {
+          background: $main-color;
+          color:#fff;
+          border:1px solid transparent;
+        }
+      }
+
+    }
+    .num {
+      padding:0.625rem;
+      line-height: 3;
+      .right {
+        float:right;
+        span {
+          display:inline-block;
+          vertical-align: middle;
+          width:2rem;
+          height:2rem;
+        }
+        input {
+          width:2.5rem;
+          height: 2rem;
+          border:1px solid $border-color;
+          text-align: center;
+          font-size: 1.15rem;
+          vertical-align: middle;
+        }
+      }
+    }
+    .btn-box {
+      button {
+        width:100%;
+        background: #ff5000;
+        color:#fff;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+

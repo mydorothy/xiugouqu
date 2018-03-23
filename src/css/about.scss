@@ -1,0 +1,179 @@
+
+.about {
+  .h {
+    line-height: 2;
+    .left {
+      width: 5rem;
+      display:inline-block;
+      text-align: center;
+      background:$main-color;
+      color:#fff;
+      white-space: nowrap;
+      position: relative;
+      &:after {
+        content: '';
+        display:inline-block;
+        position: absolute;
+        top:0;
+        right:-1rem;
+        width:0px;
+        height: 100%;
+        border-width: 1rem 0.5rem;
+        border-style: solid;
+        border-color: #38AF43 transparent transparent #38AF43;
+
+      }
+    }
+    .right {
+      width: calc(100% - 6.5rem);
+      margin-left: 1rem;
+      float:right;
+      display:inline-block;
+      padding: 0 0 0 .625rem;
+      background-color: #888;
+      color: #ccc;
+      position: relative;
+      &:before {
+        content: '';
+        display:inline-block;
+        width:0;
+        height:100%;
+        position:absolute;
+        top:0;
+        left:-1rem;
+        border-width: 1rem 0.5rem;
+        border-style: solid;
+        border-color: transparent #888 #888 transparent;
+      }
+    }
+    @media (max-width:360px) {
+      .right {
+        padding: 0rem;
+      }
+    }
+  }
+  .c {
+    color:#fff;
+    padding:.75rem;
+    line-height: 1.6;
+    background:url("../images/certifily_banckground.jpg") no-repeat center;
+    background-size: cover;
+  }
+  .g {
+    padding:2rem .75rem;
+    text-align: center;
+    background:url('../images/email_background.jpg') no-repeat left center/cover;
+    p {
+      line-height: 2;
+    }
+    p:first-child {
+      font-size: 1.25rem;
+      color:#fff;
+      span {
+        color:$main-color;
+      }
+    }
+    .info {
+      font-size: 0.875rem;
+      color: #888d90;
+    }
+    input[name=email] {
+      width: 86%;
+      line-height: 3.4;
+      text-align: center;
+      margin: 0.25rem 0;
+      border-radius: 6px;
+      border:1px solid $border-color;
+    }
+    .btn-get {
+      background: #ccc;
+      border:1px solid $border-color;
+      color:#fff;
+      border-radius: 10px;
+      padding: 0.875rem 3rem;
+      border-radius: 2rem;
+    }
+  }
+  .i {
+    padding-bottom: 1rem;
+  }
+  .about-3 {
+    .drug {
+      background:$back-color;
+      li {
+        display:table;
+        width: 100%;
+        margin:10px 0;
+        background: #8CCE95;
+        div {
+          display:table-cell;
+          vertical-align: middle;
+        }
+        .l {
+          width: 55%;
+          border-right: 0.5rem solid #F2F4F8;
+        }
+        .r {
+          width: calc(100% - 55%);
+          color:#fff;
+          padding-left:0.75rem;
+          h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .about-4 {
+    background-color: #fff;
+    overflow: hidden;
+    .pack {
+      margin:1rem 0;
+      padding-left: 0.5rem;
+      dt {
+        width:45%;
+        display:inline-block;
+        vertical-align: top;
+        border: 1px dashed $main-color;
+      }
+      dd {
+        width:calc(100% - 47%);
+        display:inline-block;
+        vertical-align: top;
+        padding-left: 0.25rem;
+        .num {
+          background: $main-color;
+          color: #fff;
+          float:left;
+          display: block;
+          width: 3rem;
+          height: 3rem;
+          margin-right: 0.5rem;
+          line-height: 3rem;
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: bold;
+          border-bottom-right-radius: 14px;
+          border-top-left-radius: 14px;
+        }
+        h4 {
+          color:$main-color;
+          font-weight: bold;
+          font-size: 1.125rem;
+          line-height: 1;
+        }
+        p {
+          color:$main-color;
+          font-size: 0.875rem;
+        }
+        .introduce {
+          font-size: 0.875rem;
+          color:#888;
+          padding-top: 0.25rem;
+        }
+      }
+    }
+  }
+}
