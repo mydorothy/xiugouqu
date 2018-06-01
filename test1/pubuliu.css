@@ -1,0 +1,45 @@
+/*
+Error: Invalid GBK character "\xE0"
+        on line 84 of pubuliu.scss
+
+79:       content: counter(item-counter);
+80:     }
+81: 
+82:     &:after {
+83:       color: darken($bg, 10%);
+84:       content: 'ಠ‿ಠ';
+85:     }
+86: 
+87:     &--small {
+88:       @include setColorAndHover($itemBg2);
+89:       height: 100px;
+
+Backtrace:
+pubuliu.scss:84
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:1302:in `rescue in block in find_encoding_error'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:1297:in `block in find_encoding_error'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:1296:in `each'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:1296:in `each_with_index'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:1296:in `find_encoding_error'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:905:in `check_sass_encoding'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/engine.rb:436:in `check_encoding!'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/engine.rb:392:in `_to_tree'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/plugin.rb:82:in `update_stylesheets'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:51:in `process_result'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/bin/scss:13:in `<top (required)>'
+d:/Ruby192/bin/scss:19:in `load'
+d:/Ruby192/bin/scss:19:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid GBK character \"\xE0\"\A         on line 84 of pubuliu.scss\A \A 79:       content: counter(item-counter);\A 80:     }\A 81: \A 82:     &:after {\A 83:       color: darken($bg, 10%);\A 84:       content: 'ಠ‿ಠ';\A 85:     }\A 86: \A 87:     &--small {\A 88:       @include setColorAndHover($itemBg2);\A 89:       height: 100px;"; }

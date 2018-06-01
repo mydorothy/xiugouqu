@@ -1,0 +1,42 @@
+.user .user-info {
+  text-align: center;
+  background: #86e8cc;
+  padding: 5rem 0; }
+  .user .user-info img {
+    width: 4rem;
+    height: 4rem;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%; }
+  .user .user-info .dd {
+    color: #fff;
+    padding-top: 1rem; }
+  .user .user-info .btn-login {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    height: 2rem;
+    font-size: 1rem;
+    padding: 0 12px; }
+.user .order {
+  background: #fff;
+  margin-bottom: 10px; }
+  .user .order ul {
+    padding: 1rem 0; }
+    .user .order ul li {
+      display: inline-block;
+      width: 24%;
+      text-align: center; }
+      .user .order ul li .iconfont {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        display: block; }
+.user .list {
+  margin-bottom: 10px; }
+  .user .list li .iconfont {
+    vertical-align: middle;
+    font-size: 1.25rem;
+    padding-right: 0.5rem; }
+
+/*# sourceMappingURL=user.css.map */

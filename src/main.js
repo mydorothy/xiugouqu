@@ -3,13 +3,24 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './vuex/vuex'
 
 import 'mint-ui/lib/style.css'
 
+import Mint from 'mint-ui'
+Vue.use(Mint)
 
 
-import vueResource from 'vue-resource'
-Vue.use(vueResource);
+//注册全局变量
+import {https} from './resource/https'
+Vue.prototype.https = https
+
+//注册全局filter
+import * as custom from './filters/custom'
+Object.keys(custom).forEach((key) => {
+  Vue.filter(key,custom[key])
+})
+
 
 Vue.config.productionTip = false
 
@@ -27,6 +38,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

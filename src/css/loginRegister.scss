@@ -1,0 +1,63 @@
+
+.login {}
+.icon {
+  text-align: center;
+  padding:1.5rem 0;
+  span {
+    font-size: 3rem;
+    display: inline-block;
+    width: 5rem;
+    cursor: pointer;
+    &.icon-weixin {
+      color: #50B674;
+    }
+    &.icon-qq {
+      color: #5EAADE;
+    }
+  }
+}
+.field {
+  margin-top:10px;
+  .btn-box {
+    margin: 1rem;
+    button {
+      border:none;
+      box-shadow: 0 0 10px #eee;
+      background:$main-color;
+      color:#fff;
+      &.disabled {
+        color:#999;
+      }
+    }
+  }
+}
+.a-register {
+  text-align: center;
+  a {
+    color:$main-color;
+    position: relative;
+    &:before,&:after {
+      content:'';
+      position: absolute;
+      top:50%;
+      left:-65px;
+      display:inline-block;
+      width:60px;
+      height: 1px;
+      background-color:#a9e4d3;
+    }
+    &:after {
+      left:auto;
+      right:-65px;
+    }
+  }
+}
+.register {
+  .select {
+    .mint-cell {
+      background-color: transparent;
+    }
+  }
+}
+
+

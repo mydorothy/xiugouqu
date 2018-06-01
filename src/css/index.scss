@@ -92,9 +92,16 @@
 }
 
 .banner {
+  height: 200px;
+  overflow: hidden;
+  .swiper-container {
+    height: 100%;
+  }
   .img-box {
-    height: 20rem;
+    height: 100%;
     text-align: center;
+    background-size:cover;
+    background-position: center center;
     img {
       display:inline-block;
       vertical-align: middle;
@@ -104,6 +111,7 @@
       top:0;
       right:0;
       bottom:0;
+      display:none;
     }
   }
 }
@@ -129,6 +137,20 @@
 
 
 .array-box {
+  .array {
+    -moz-column-count:2; /* Firefox */
+    -webkit-column-count:2; /* Safari 和 Chrome */
+    column-count:2; /* 将 元素中的文本分为2列 */
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+    column-gap: 0.4rem; /* 列间的间隔 */
+    li {
+      -moz-page-break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      break-inside: avoid;
+      width:100%;
+    }
+  }
   .h {
     &:before {
       border-left: 6px solid $main-color;
@@ -159,6 +181,66 @@
       }
 
     }
+  }
+}
+//新品首发
+.new-product {
+  background:#fff;
+  .h {
+    font-size: 1rem;
+  }
+  .list {
+    li {
+      padding: 0.6rem;
+      box-shadow: 2px 3px 3px #efeff4;
+      .img-box {
+        width: 26%;
+        display:inline-block;
+        vertical-align: middle;
+        img {
+          //border-radius: 4px;
+        }
+      }
+      .mt-progress-progress {
+        background-color: $price-color;
+      }
+      .des {
+        font-size: 0.75rem;
+        color: #999;
+        .r {
+          float: right;
+        }
+      }
+      .text {
+        width: 70%;
+        display:inline-block;
+        vertical-align: middle;
+        padding-left: 0.4rem;
+        .price {
+          color:$price-color;
+          .min-font {
+            font-size: 0.75rem;
+          }
+        }
+        .btn {
+          font-size: 0.75rem;
+          border: 1px solid $price-color;
+          border-radius: 12px;
+          padding: 0 0.6rem;
+          color: $price-color;
+          float: right;
+        }
+      }
+    }
+  }
+}
+
+//品牌促销
+.brand-box {
+  .img-box {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 3px;
   }
 }
 

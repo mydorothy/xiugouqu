@@ -1,0 +1,100 @@
+
+.cart {
+  .list-box {
+    background: #fff;
+    li {
+      .img-box {
+        width: 7rem;
+        height: 7rem;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0.5rem;
+        .d {
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .content {
+        display: inline-block;
+        vertical-align: top;
+        width: calc(100% - 10rem);
+        padding-top: 0.5rem;
+        .num-box {
+          padding-top: 0.25rem;
+        }
+        .number {
+          float: right;
+          input {
+            height: 1.75rem;
+            font-size: 1rem;
+          }
+          span {
+            width: 1.75rem;
+            height: 1.75rem;
+            line-height: 1.75rem;
+          }
+        }
+      }
+    }
+  }
+  .cart-tool {
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    div {
+      display:inline-block;
+      line-height: 3.5rem;
+    }
+    .total {
+      float:right;
+      padding-right: 0.5rem;
+    }
+    .btn-box {
+      width: 40%;
+      float:right;
+      .btn {
+        width: 100%;
+        background: $main-color;
+        color:#fff;
+      }
+    }
+  }
+  .select {
+    display:inline-block;
+    vertical-align: middle;
+    padding-left: 0.5rem;
+    position: relative;
+    input {
+      position: absolute;
+      clip: rect(0,0,0,0);
+    }
+    .checkbox-core {
+      display:block;
+      width: 20px;
+      height:20px;
+      background: $back-color;
+      border-radius: 50%;
+      position: relative;
+      border:1px solid $border-color;
+    }
+    input:checked + .checkbox-core {
+      background: $main-color;
+      border:none;
+      &:after {
+        content:'';
+        border: 2px solid #fff;
+        border-left: 0;
+        border-top: 0;
+        position: absolute;
+        top: 5px;
+        left: 8px;
+        width: 4px;
+        height: 8px;
+        transform: rotate(45deg) scale(1);
+        transition: transform .2s, -webkit-transform .2s;
+      }
+    }
+  }
+}

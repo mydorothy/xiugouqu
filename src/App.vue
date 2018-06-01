@@ -1,22 +1,23 @@
 <template>
   <div id="app">
     <headers></headers>
-    <mt-tabbar v-model="selected" fixed>
+    <mt-tabbar v-model="selected" fixed v-show="$store.state.tabbarState" class="tabbar">
       <mt-tab-item id="index">
-        <img slot="icon" src="./images/ruyi_logo_patient.png" alt="">
-        首页
+        <!--<img slot="icon" src="./images/ruyi_logo_patient.png" alt="">-->
+        <span class="iconfont icon-index"></span>
+        <p class="p">首页</p>
       </mt-tab-item>
       <mt-tab-item id="cart">
-        <img slot="icon" src="./images/ruyi_logo_patient.png" alt="">
-        购物车
+        <span class="iconfont icon-cart"></span>
+        <p class="p">购物车</p>
       </mt-tab-item>
       <mt-tab-item id="order">
-        <img slot="icon" src="./images/ruyi_logo_patient.png" alt="">
-        订单
+        <span class="iconfont icon-dingdan"></span>
+        <p class="p">订单</p>
       </mt-tab-item>
       <mt-tab-item id="user">
-        <img slot="icon" src="./images/ruyi_logo_patient.png" alt="">
-        我的
+        <span class="iconfont icon-daohanglan-05"></span>
+        <p class="p">我的</p>
       </mt-tab-item>
     </mt-tabbar>
     <router-view/>
@@ -28,14 +29,14 @@
   import heads from '@component/common/header'
   import foots from '@component/common/footer'
 
-  import {Tabbar,TabItem} from 'mint-ui'
+//  import {Tabbar,TabItem} from 'mint-ui'  //我已经全局注册过了
 export default {
   name: 'app',
   components: {
     headers: heads,
     footers:foots,
-    "mt-tabbar": Tabbar,
-    "mt-tab-item":TabItem
+    /*"mt-tabbar": Tabbar,
+    "mt-tab-item":TabItem*/
   },
   data() {
     return {
@@ -55,6 +56,16 @@ export default {
     }
   },
   mounted() {
+
+    //获取用户cookies信息
+    if(!this.$store.state.userInfo) {
+      let cookieUser = localStorage.getItem('user');
+      console.log('cookie',cookieUser)
+      if(cookieUser) {
+        this.$store.commit('upUserInfo',JSON.parse(cookieUser))
+      }
+    }
+
     window.addEventListener('popstate',function() {// 原生浏览器前进后退事件
       //alert('3');
     })

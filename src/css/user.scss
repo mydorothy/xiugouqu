@@ -1,0 +1,55 @@
+
+.user {
+  .user-info {
+    text-align: center;
+    background: #86e8cc;
+    padding: 5rem 0;
+    img {
+      width: 4rem;
+      height: 4rem;
+      display:block;
+      margin:0 auto;
+      border-radius: 50%;
+    }
+    .dd {
+      color:#fff;
+      padding-top:1rem;
+    }
+    .btn-login {
+      color:#fff;
+      background-color:transparent;
+      border:1px solid #fff;
+      border-radius: 4px;
+      height: 2rem;
+      font-size: 1rem;
+      padding: 0 12px;
+    }
+  }
+  .order{
+    background: #fff;
+    margin-bottom:10px;
+    ul {
+      padding: 1rem 0;
+      li {
+        display:inline-block;
+        width: 24%;
+        text-align: center;
+        .iconfont {
+          font-size: 1.75rem;
+          line-height: 1.2;
+          display:block;
+        }
+      }
+    }
+  }
+  .list {
+    margin-bottom:10px;
+    li {
+      .iconfont {
+        vertical-align: middle;
+        font-size: 1.25rem;
+        padding-right:0.5rem;
+      }
+    }
+  }
+}

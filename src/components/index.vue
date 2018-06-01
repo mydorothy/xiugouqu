@@ -21,102 +21,88 @@
         <!--banner-->
         <section class="clear banner">
           <swiper :options="bannerOption" ref="mySwiper">
-            <swiper-slide class="" v-for="item in bannerList" v-bind:key="item.goodsID" data-swiper-autoplay="2000">
-              <!--:to 参数是对象的话 要加冒号，如果是普通的字符串就不用加了-->
-              <!--query写法会拼到url里?a=b&c=d ，params 的键值对在请求头header中可以查看到，不放在url中。-->
-              <router-link :to="{ name: 'goods', params: { id: item.goodsID }}"> <!--在url中参数不会显示出来,除非在路由配置里加上 path:'/goods：id'-->
-              <!--<router-link :to="{path:'/goods',query:{id:item.goodsID}}" >-->  <!--在url中会参数会显示出来-->
+            <swiper-slide data-swiper-autoplay="2000" v-for="item in bannerList" v-bind:key="item.id">
+              <a href="">
+                <div class="img-box" v-bind:style="{backgroundImage:'url(' + item.url + ')'}">
+                  <img :src="item.url" :alt="item.url">
+                </div>
+              </a>
+            </swiper-slide>
 
-                <div class="img-box">
-                  <img v-bind:src="item.goodsBenUrl | bannerImgFirst" alt="item.goodsName">
+            <!--以下内容是走接口获取的banner-->
+            <!--<swiper-slide class="" v-for="item in bannerList" v-bind:key="item.goodsID" data-swiper-autoplay="2000">
+              &lt;!&ndash;:to 参数是对象的话 要加冒号，如果是普通的字符串就不用加了&ndash;&gt;
+              &lt;!&ndash;query写法会拼到url里?a=b&c=d ，params 的键值对在请求头header中可以查看到，不放在url中。&ndash;&gt;
+              <router-link :to="{ name: 'goods', params: { id: item.goodsID }}"> &lt;!&ndash;在url中参数不会显示出来,除非在路由配置里加上 path:'/goods：id'&ndash;&gt;
+              &lt;!&ndash;<router-link :to="{path:'/goods',query:{id:item.goodsID}}" >&ndash;&gt;  &lt;!&ndash;在url中会参数会显示出来&ndash;&gt;
+
+                <div class="img-box" v-bind:style="{backgroundImage:'url(' + bannerBg(item.goodsBenUrl) + ')'}">
+                  <img v-bind:src="item.goodsBenUrl | bannerImgFirst" :alt="item.goodsName">
                 </div>
               </router-link>
-            </swiper-slide>
+            </swiper-slide>-->
             <div class="swiper-pagination" slot="pagination"></div>
           </swiper>
         </section>
         <!--快速导航-->
-        <nav class="border-b-1px nav">
-          <ul class="clear">
-            <li>
-              <a href="">
-                <img src="../images/ruyi_q1@2x.png" alt="">
-                <p>全部药品</p>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="../images/ruyi_q2@2x.png" alt="">
-                <p>我的订单</p>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="../images/ruyi_q3@2x.png" alt="">
-                <p>购物车</p>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="../images/ruyi_q5@2x.png" alt="">
-                <p>地址管理</p>
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        <!--团购专区-->
-        <section class="border-t-1px border-b-1px floor-box">
+        <!--<adv></adv>-->
+        <!--新品首发-->
+        <newPro></newPro>
+        <!--品牌促销-->
+        <section class="border-t-1px border-b-1px floor-box brand-box" style="background-color:#fff;">
           <div class="h">
-            <h3>团购专区</h3>
-            <span class="iconfont icon-jiantou arrow-right"></span>
-            <router-link to="/activity-list?id=2">更多商品</router-link>
+            <h3>品牌促销</h3>
+            <p class="p">品牌打折到剁手</p>
+            <!--<span class="iconfont icon-jiantou arrow-right"></span>
+            <router-link to="/activity-list?id=2">更多商品</router-link>-->
             <!--<a v-bind:href="#/activity-list?id=2">更多商品</a>-->
           </div>
           <swiper :options="swiperOption" ref="mySwiper">
-            <swiper-slide class="" v-for="str in listImg" style="text-align:center" v-bind:key="str.id" data-swiper-autoplay="2000">
-              <div class="border-r-1px list">
-                <a href="#/goods">
+            <swiper-slide class="" v-for="str in listImg" style="text-align:center" v-bind:key="str.goodsID" data-swiper-autoplay="2000">
+              <div class="list">
+                <router-link :to="{name:'goods',params:{ goodsID:str.goodsID } }">
                   <div class="img-box">
-                    <img :src="str.url" />
+                    <img :src="str.goodsListImg" />
                   </div>
-                </a>
+                </router-link>
                 <div class="content">
-                  <p>商品名称</p>
+                  <p class="substr substr-2 name">{{str.goodsName}}</p>
                   <div class="price-box">
-                    <p class="price">￥90.98</p>
-                    <p class="mk-price">￥100.99</p>
-                    <div class="add-cart">
+                    <p class="price">{{str.price}}</p>
+                    <!--<p class="mk-price">￥</p>-->
+                    <!--<div class="add-cart">
                       <img class="btn-add-cart" goods_id="" src="../images/add_cart_icon.png" alt="">
-                    </div>
+                    </div>-->
                   </div>
                 </div>
               </div>
             </swiper-slide>
           </swiper>
         </section>
-        <!--新品上架-->
-        <section class="border-b-1px floor-box array-box">
+        <!--热销爆款-->
+        <section class="floor-box array-box">
           <div class="h">
             <h3>热销爆款</h3>
             <p class="p">总有一款适合你</p>
           </div>
           <ul class="clear array">
             <li class="" v-for="item in hotSell" v-bind:key="item.goodsID">
-              <a href="">
-                <div class="img-box count-height" v-bind:style="{height:listImgHeight+'px'}">
-                  <img :src="item.goodsListImg" />
-                </div>
-              </a>
-              <div class="content">
-                <p class="substr">{{item.goodsName}}</p>
-                <div class="price-box">
-                  <p class="price">￥{{item.price}}</p>
-                  <p class="mk-price" v-if="(item.discount*1) > 0">￥{{(item.price*1)/(item.discount*0.1) | tofixed}}</p>
-                  <p class="mk-price" v-else>￥{{item.price}}</p>
-                  <span v-show="item.discount*1 >0">{{item.discount}}折</span>
-                  <div class="add-cart">
-                    <img class="btn-add-cart" goods_id="" src="../images/add_cart_icon.png" alt="">
+              <div class="item">
+                <router-link :to="{name:'goods',params:{goodsID:item.goodsID}}">
+                  <div class="count-height" v-bind:style="">
+                    <img :src="item.goodsListImg" />
+                  </div>
+                </router-link>
+                <div class="content">
+                  <p class="substr">{{item.goodsName}}</p>
+                  <div class="price-box">
+                    <p class="price">{{item.price}}</p>
+                    <p class="mk-price" v-if="(item.discount*1) > 0">￥{{(item.price*1)/(item.discount*0.1) | tofixed}}</p>
+                    <p class="mk-price" v-else>￥{{item.price}}</p>
+                    <span v-show="item.discount*1 >0">{{item.discount}}折</span>
+                    <div class="add-cart">
+                      <img class="btn-add-cart" goods_id="" src="../images/add_cart_icon.png" alt="">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -125,7 +111,7 @@
         </section>
 
         <!--科室列表-->
-        <section class="border-t-1px border-b-1px floor-box array-box section-list">
+        <!--<section class="border-t-1px border-b-1px floor-box array-box section-list">
           <div class="list">
             <swiper :options="sectionOption" ref="mySwiper">
               <swiper-slide  v-for="str in listImg" style="text-align:center" v-bind:key="str.id" data-swiper-autoplay="2000">
@@ -134,7 +120,6 @@
                 </div>
               </swiper-slide>
             </swiper>
-
           </div>
 
           <ul class="clear array">
@@ -156,18 +141,17 @@
               </div>
             </li>
           </ul>
-        </section>
+        </section>-->
 
         <!--药师咨询-->
-        <section class="phone">
+        <!--<section class="phone">
           <div class="phone-row">
             <div class="h">药师咨询</div>
             <div class="content">
               <a href="tel:15737124615" class="iconfont icon-dianhua">15737124615</a>
             </div>
           </div>
-        </section>
-
+        </section>-->
 
         <div class="up-updata" v-html="upText"></div>
       </div>
@@ -179,9 +163,11 @@
 <script type="text/ecmascript-6">
 
 
+  import Copyright from '@component/common/copyright'
+  import Adv from '@component/common/adv'
+  import NewProduct from '@component/common/new_product'
 
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
-  import Copyright from '@component/common/copyright'
   import {https} from '../resource/https.js'
   import BScroll from 'better-scroll'
 
@@ -197,9 +183,11 @@
   export default {
     name: 'index',
     components: {
+      copyright:Copyright,
+      'adv': Adv,
+      'newPro': NewProduct,
       swiper,
       swiperSlide,
-      copyright:Copyright,
       https
     },
     data() {
@@ -214,34 +202,22 @@
           trigger: 'click', //指示分页器触发方式：click、hover
           arrow: 'never' // 左右箭头 hover悬停时显示 、always 一直显示、never 不显示
         },*/
-        bannerList: [], // banner
+        bannerList: [{
+          url: "./src/images/banner1.jpg",
+          id:1
+        },{
+          url: './src/images/banner2.jpg',
+          id:2
+        },{
+          url:'./src/images/banner3.jpg',
+          id:3
+        },{
+          url:'./src/images/banner_default.jpg',
+          id:4
+        }], // banner
+        bannerImg:'http://o.c-doctor.com/themes/wap/salesCenter/images/ruyi_title_background.png',//banner图片
         hotSell:[], // 热销爆款
-        listImg:[
-          {
-            id:'1',
-            url:'http://saas.c-doctor.com/statics/attachment/adv/201710191150244728.png'
-          },
-          {
-            id:'2',
-            url:'http://saas.c-doctor.com/statics/attachment/adv/201712271400037137.png'
-          },
-          {
-            id:'3',
-            url:'http://saastest.c-doctor.com/statics/attachment//store/63/goods/201709221438246811.jpg!310x310'
-          },
-          {
-            id:'4',
-            url:'http://saastest.c-doctor.com/statics/attachment//store/63/goods/201709221438246811.jpg!310x310'
-          },
-          {
-            id:'5',
-            url:'http://saastest.c-doctor.com/statics/attachment//store/63/goods/201709121420563841.jpg!310x310'
-          },
-          {
-            id:'6',
-            url:'http://saastest.c-doctor.com/statics/attachment//store/63/goods/201709081058577366.jpg!310x310'
-          }
-        ],
+        listImg:[],//品牌促销
         bannerOption: { //vue-awesome-swiper
           initialSlide :0,
           pagination: '.swiper-pagination',
@@ -331,6 +307,10 @@
             this.scroll.refresh();
           }
         });
+      },
+      bannerBg(imgArr) {//banner图以背景的形式显示
+        imgArr = JSON.parse(imgArr);
+        return imgArr[0];
       }
     },
     // 如果你需要得到当前的swiper对象来做一些事情，你可以像下面这样定义一个方法属性来获取当前的swiper对象，同时notNextTick必须为true
@@ -352,17 +332,11 @@
       }
     },
     filters: {
-      bannerImgFirst(imgArr) { //  过滤取banner 接口的第一个图片
-        imgArr = JSON.parse(imgArr);
-        return imgArr[0];
-      },
-      tofixed(val) {// 保留小数点后两位
-        return val.toFixed(2);
-      }
+
     },
   // props: ['listImg'],
     mounted() {// 载入之后执行 在这里调不到 methods里的方法
-      console.log('mounted', this);
+      this.$store.commit('upTabbarState',true)//显示底部 tabbar
       let _this = this;
       /*window.onresize = function() {
         console.log($('.count-height').width())
@@ -370,8 +344,9 @@
       }*/
     },
     created() {
+      this.$store.commit('upTabbarState',true);
       //首页banner图
-      https.getIndexBanner(this).then((data) => {
+      /*https.getIndexBanner(this).then((data) => {
         console.log('data的值',data.data);// 用data.data || data.body都可以取到参数值
         this.bannerList = data.data;
         this.loadStatus = true;
@@ -379,17 +354,29 @@
         this._initScroll();
       },(err) => {
         console.log('失败',err);
-      });
+      });*/
+      //品牌促销
+      this.https.getSelectGoodes({selectText:encodeURI('棉服')}).then((data) => {
+        if(data.data) {
+          this.listImg = data.data;
+        }
+      },(err) => {
+        console.error(err);
+      })
       //热销爆款
-      https.getGoods(this,{pageCode:0,linenumber:20}).then((data) => {
+      https.getGoods({pageCode:0,linenumber:20}).then((data) => {
+        this.$indicator.close();//关闭loading
         console.log('热销爆款',data.data);
         this.hotSell = data.data;
+        this.loadStatus = true;
+        //初始化iscroll
+        this._initScroll();
         this.$nextTick(() => {
           let el = $('.count-height');
           this.listImgHeight = el.width();
         });
       },(err) => {
-
+        console.error(err);
       })
 
 
@@ -400,7 +387,5 @@
 
 <style lang="scss">
   @import "../css/index.scss";
-
-
 
 </style>

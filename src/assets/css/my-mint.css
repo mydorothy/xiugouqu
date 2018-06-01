@@ -1,0 +1,41 @@
+/*
+Error: Invalid GBK character "\xE8"
+        on line 1 of my-mint.scss
+
+1: /* 覆盖mint-ui的primary颜色，改为自己UI的主题色 *\/
+2: $color-primary: $main-color;
+3: 
+4: .mint-header {
+5:   background-color: $color-primary;
+6: }
+
+Backtrace:
+my-mint.scss:1
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:1302:in `rescue in block in find_encoding_error'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:1297:in `block in find_encoding_error'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:1296:in `each'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:1296:in `each_with_index'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:1296:in `find_encoding_error'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:911:in `rescue in check_sass_encoding'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/util.rb:907:in `check_sass_encoding'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/engine.rb:436:in `check_encoding!'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/engine.rb:392:in `_to_tree'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/plugin.rb:82:in `update_stylesheets'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:51:in `process_result'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+d:/Ruby192/lib/ruby/gems/1.9.1/gems/sass-3.4.22/bin/scss:13:in `<top (required)>'
+d:/Ruby192/bin/scss:19:in `load'
+d:/Ruby192/bin/scss:19:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid GBK character \"\xE8\"\A         on line 1 of my-mint.scss\A \A 1: /* 覆盖mint-ui的primary颜色，改为自己UI的主题色 */\A 2: $color-primary: $main-color;\A 3: \A 4: .mint-header {\A 5:   background-color: $color-primary;\A 6: }"; }
